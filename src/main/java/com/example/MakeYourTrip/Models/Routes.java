@@ -3,13 +3,17 @@ package com.example.MakeYourTrip.Models;
 
 import com.example.MakeYourTrip.Enums.City;
 import com.example.MakeYourTrip.Enums.ModeofTransport;
-import lombok.Data;
-
+import lombok.*;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "routes")
-@Data
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
 public class Routes {
 
     @Id
@@ -20,7 +24,11 @@ public class Routes {
 
     private City toCity;
 
-    private String ListofStopsInbetween;
+    private String listofStopsInbetween;
 
     private ModeofTransport modeofTransport;
+
+    @OneToMany(mappedBy = "routes",cascade = CascadeType.ALL)
+    private List<Transport> transportList  = new ArrayList<>();
+
 }

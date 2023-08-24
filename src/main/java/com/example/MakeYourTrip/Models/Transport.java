@@ -2,7 +2,10 @@ package com.example.MakeYourTrip.Models;
 
 
 import com.example.MakeYourTrip.Enums.ModeofTransport;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -14,6 +17,9 @@ import java.util.List;
 @Entity
 @Table(name="transport")
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Transport {
 
     @Id
