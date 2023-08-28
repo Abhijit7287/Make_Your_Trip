@@ -20,12 +20,15 @@ public class Routes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer routeId;
 
+    @Enumerated(value = EnumType.STRING)
     private City fromCity;
 
+    @Enumerated(value = EnumType.STRING)
     private City toCity;
 
     private String listofStopsInbetween;
 
+    @Enumerated(value = EnumType.STRING)
     private ModeofTransport modeofTransport;
 
     @OneToMany(mappedBy = "routes",cascade = CascadeType.ALL)

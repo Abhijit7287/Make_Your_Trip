@@ -1,6 +1,7 @@
 package com.example.MakeYourTrip.Models;
 
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import java.util.List;
 @Entity
 @Table(name = "user")
 @Data
+@Builder
 public class User {
 
     @Id

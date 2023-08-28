@@ -18,4 +18,6 @@ public class AddTransport {
     private double JourneyTime;
 
     private Integer routeId;
+
+    private String companyName;
 }

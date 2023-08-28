@@ -1,17 +1,14 @@
 package com.example.MakeYourTrip.RequestDto;
 
 import com.example.MakeYourTrip.Enums.City;
-import com.example.MakeYourTrip.Enums.ModeofTransport;
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @Data
-public class AddRouteDto {
+public class SearchFlightDto {
 
     private City fromCity;
-
     private City toCity;
-
-    private String stopsInBetween;
-
-    private ModeofTransport modeofTransport;
+    private LocalDate journeyDate;
 }

@@ -1,15 +1,20 @@
 package com.example.MakeYourTrip.Services;
 
+import com.example.MakeYourTrip.Enums.ModeofTransport;
 import com.example.MakeYourTrip.Exceptions.RouteNotfoundException;
 import com.example.MakeYourTrip.Models.Routes;
 import com.example.MakeYourTrip.Models.Transport;
 import com.example.MakeYourTrip.Repositories.RoutesRepository;
 import com.example.MakeYourTrip.Repositories.TransportRepository;
 import com.example.MakeYourTrip.RequestDto.AddTransport;
+import com.example.MakeYourTrip.RequestDto.SearchFlightDto;
+import com.example.MakeYourTrip.ResponceDtos.FlightResult;
 import com.example.MakeYourTrip.Transformers.TransportTransformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -42,5 +47,35 @@ public class TransportService {
 
 
         return "Transport has been added Successfully";
+    }
+
+
+    public List<FlightResult> searchFlights(SearchFlightDto searchFlightDto){
+
+       ///first get the list of routes according fromCity and toCity and ModeOftransport
+        List<Routes> routesList = routesRepository.findRoutesbyFromCityAndToCityandModeOfTransport(searchFlightDto.getFromCity(),searchFlightDto.getToCity(), ModeofTransport.FLIGHT);
+
+        ///create list of flightResult for returning
+        List<FlightResult> flightResults = new ArrayList<>();
+
+        ///traverse through each route
+        for(Routes routes : routesList){
+
+            List<Transport> transportList = routes.getTransportList();
+          ///traverse through each transport and if journydate is equal build the flightResult object
+            for(Transport transport : transportList){
+
+                if(transport.getJournydate().equals(searchFlightDto.getJourneyDate())){
+            ///build the Flightresult object from traansport object(using attributes of transport object)
+                    FlightResult result = TransportTransformers.convertToFlightResult(transport);
+                    ///traansport object does not contains setListOfStopInBetween so
+                    ///we are getting it from route object
+                    result.setListOfStopInBetween(routes.getListofStopsInbetween());
+                    flightResults.add(result);
+                }
+            }
+        }
+
+        return flightResults;
     }
 }

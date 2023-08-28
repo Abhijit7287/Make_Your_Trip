@@ -2,12 +2,11 @@ package com.example.MakeYourTrip.Models;
 
 
 import com.example.MakeYourTrip.Enums.ModeofTransport;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Cascade;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -26,6 +25,7 @@ public class Transport {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer transportId;
 
+    @Enumerated(value = EnumType.STRING)
     private ModeofTransport modeofTransport;
 
     private LocalDate Journydate;
@@ -34,14 +34,16 @@ public class Transport {
 
     private double JourneyTime;
 
+    private String companyName;
+
     @ManyToOne
     @JoinColumn
     private Routes routes;
 
     @OneToMany(mappedBy = "transport",cascade = CascadeType.ALL)
-    private Seat seat;
+    private List<Seat> seatList = new ArrayList<>();
 
     @OneToMany(mappedBy = "transport",cascade = CascadeType.ALL)
-    List<Booking>bookings = new ArrayList<>();
+    private List<Booking> bookings = new ArrayList<>();
 
 }

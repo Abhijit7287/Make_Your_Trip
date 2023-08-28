@@ -1,5 +1,6 @@
 package com.example.MakeYourTrip.Models;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import java.time.LocalTime;
 @Entity
 @Table(name = "ticket")
 @Data
+@Builder
 public class TicketEntity {
 
 

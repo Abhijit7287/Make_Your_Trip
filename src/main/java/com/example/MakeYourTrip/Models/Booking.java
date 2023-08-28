@@ -1,15 +1,17 @@
 package com.example.MakeYourTrip.Models;
 
 import com.sun.javafx.beans.IDProperty;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
 @Table(name = "bookings")
 @Data
-
+@Builder
 ///this will keep record of already booked Seats on a perticullar date
 ///of a perticullar transportId
 public class Booking {
@@ -20,7 +22,7 @@ public class Booking {
 
     private String seatNos; ///this will ne comma seprated values like 1A,2A,3A
 
-    private Date JourneyDate;
+    private LocalDate JourneyDate;
 
     private Integer transportId;
 
