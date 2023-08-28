@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.util.RouteMatcher;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -105,6 +104,8 @@ public class BookingService {
 
        ///we will have to save it also ..but how..?
 
+       bookingRepository.save(booking);
+
        return new ResponseEntity("booking has been done Successfully", HttpStatus.OK);
 
    }
@@ -128,9 +129,25 @@ public class BookingService {
 
    public Integer findtotalPricePaid(Transport transport,String seatNos){
 
-    ///calculate price here
+       ///calculate price here
+       List<Seat> seatList = transport.getSeatList();
 
-     return 0;
+       String[] AllseatNos = seatNos.split(",");
+
+       Integer totalPrize =0;
+
+       for(String seatNo : AllseatNos){
+
+           for(Seat seat : seatList){
+
+               if(seat.getSeatNo().equals(seatNo)){
+
+                   totalPrize+=seat.getPrice();
+               }
+           }
+       }
+
+     return totalPrize;
    }
 
    public String getRouteDetails(Transport transport){

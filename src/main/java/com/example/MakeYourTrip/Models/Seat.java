@@ -11,7 +11,6 @@ import javax.persistence.*;
 @Builder
 public class Seat {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer seatId;
