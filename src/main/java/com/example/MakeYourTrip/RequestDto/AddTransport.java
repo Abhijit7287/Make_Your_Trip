@@ -11,7 +11,7 @@ public class AddTransport {
 
     private ModeofTransport modeofTransport;
 
-    private LocalDate Journydate;
+    private LocalDate JourneyDate;
 
     private LocalTime startTime;
 

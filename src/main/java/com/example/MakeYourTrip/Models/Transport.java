@@ -28,7 +28,7 @@ public class Transport {
     @Enumerated(value = EnumType.STRING)
     private ModeofTransport modeofTransport;
 
-    private LocalDate Journydate;
+    private LocalDate JourneyDate;
 
     private LocalTime startTime;
 

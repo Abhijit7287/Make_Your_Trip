@@ -14,6 +14,7 @@ import java.util.List;
 @Setter
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class Routes {
 
     @Id

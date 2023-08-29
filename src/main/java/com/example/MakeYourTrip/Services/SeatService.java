@@ -13,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
-@Data
 public class SeatService {
 
     @Autowired
@@ -27,7 +26,7 @@ public class SeatService {
 
          Transport transportObj = transportRepository.findById(seatDto.getTransportId()).get();
 
-         for(int i=1;i<seatDto.getNoOfEconomySeats();i++){
+         for(int i=1;i<=seatDto.getNoOfEconomySeats();i++){
 
              Seat seat = Seat.builder().seatNo("E"+i)
                          .seatType(SeatType.ECONOMY)
@@ -36,23 +35,28 @@ public class SeatService {
                          .build();
 
              ///setting the seatList of transportobj
+             seat = seatRepository.save(seat);
              transportObj.getSeatList().add(seat);
          }
 
 
-         for(int i=1;i<seatDto.getNoOfBuisnessSeats();i++){
+         for(int i=1;i<=seatDto.getNoOfBusinessSeats();i++){
 
              Seat seat = Seat.builder().seatNo("B"+i)
                              .seatType(SeatType.BUISSNESS)
-                             .price(seatDto.getPriceOfBuisnessSeats())
+                             .price(seatDto.getPriceOfBusinessSeats())
                              .transport(transportObj)
                              .build();
 
             ///setting the seatList of transportobj
+             seat = seatRepository.save(seat);
              transportObj.getSeatList().add(seat);
          }
          ///because of Bidirectional mapping Seat object will automatically get saved
-         transportRepository.save(transportObj);
+//         seatRepository.saveAll(transportObj.getSeatList());
+////
+////         transportRepository.save(transportObj);
+
 
          return new ResponseEntity("Seats has been added Successfully", HttpStatus.OK);
      }

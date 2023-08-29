@@ -1,17 +1,18 @@
 package com.example.MakeYourTrip.RequestDto;
 
+
 import lombok.Data;
 
 @Data
 public class AddFlightSeatDto {
 
-    private Integer noOfEconomySeats;
+    private int noOfEconomySeats;
 
-    private Integer noOfBuisnessSeats;
+    private int noOfBusinessSeats;
 
-    private Integer priceOfBuisnessSeats;
+    private int priceOfBusinessSeats;
 
-    private Integer priceOfEconomySeats;
+    private int priceOfEconomySeats;
 
-    private Integer transportId;
+    private int transportId;
 }

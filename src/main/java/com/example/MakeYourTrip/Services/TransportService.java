@@ -41,6 +41,9 @@ public class TransportService {
         ///we are setting FK column here
         transportObj.setRoutes(routes);
 
+        //Bidirectional mapping also needs to be taken care of
+        routes.getTransportList().add(transportObj);
+
         ///here both Routes and Transport are in Birecional mapping hence
         ///saving only parent is enough child  will automatically get saved
         routesRepository.save(routes);
@@ -53,8 +56,7 @@ public class TransportService {
     public List<FlightResult> searchFlights(SearchFlightDto searchFlightDto){
 
        ///first get the list of routes according fromCity and toCity and ModeOftransport
-        List<Routes> routesList = routesRepository.findRoutesbyFromCityAndToCityandModeOfTransport(searchFlightDto.getFromCity(),searchFlightDto.getToCity(), ModeofTransport.FLIGHT);
-
+        List<Routes> routesList = routesRepository.findByFromCityAndToCityAndModeofTransport(searchFlightDto.getFromCity(),searchFlightDto.getToCity(),ModeofTransport.FLIGHT);
         ///create list of flightResult for returning
         List<FlightResult> flightResults = new ArrayList<>();
 
@@ -65,7 +67,7 @@ public class TransportService {
           ///traverse through each transport and if journydate is equal build the flightResult object
             for(Transport transport : transportList){
 
-                if(transport.getJournydate().equals(searchFlightDto.getJourneyDate())){
+                if(transport.getJourneyDate().equals(searchFlightDto.getJourneyDate())){
             ///build the Flightresult object from traansport object(using attributes of transport object)
                     FlightResult result = TransportTransformers.convertToFlightResult(transport);
                     ///traansport object does not contains setListOfStopInBetween so

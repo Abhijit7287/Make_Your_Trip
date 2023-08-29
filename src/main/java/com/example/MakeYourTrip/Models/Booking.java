@@ -1,8 +1,10 @@
 package com.example.MakeYourTrip.Models;
 
 import com.sun.javafx.beans.IDProperty;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -12,6 +14,8 @@ import java.util.Date;
 @Table(name = "bookings")
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 ///this will keep record of already booked Seats on a perticullar date
 ///of a perticullar transportId
 public class Booking {
