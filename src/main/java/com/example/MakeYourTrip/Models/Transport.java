@@ -1,8 +1,7 @@
 package com.example.MakeYourTrip.Models;
 
 
-import com.example.MakeYourTrip.Enums.ModeofTransport;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.example.MakeYourTrip.Enums.ModeOfTransport;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,13 +25,13 @@ public class Transport {
     private Integer transportId;
 
     @Enumerated(value = EnumType.STRING)
-    private ModeofTransport modeofTransport;
+    private ModeOfTransport modeOfTransport;
 
-    private LocalDate JourneyDate;
+    private LocalDate journeyDate;
 
     private LocalTime startTime;
 
-    private double JourneyTime;
+    private double journeyTime;
 
     private String companyName;
 

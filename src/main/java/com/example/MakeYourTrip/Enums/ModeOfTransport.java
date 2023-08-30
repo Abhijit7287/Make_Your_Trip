@@ -1,6 +1,6 @@
 package com.example.MakeYourTrip.Enums;
 
-public enum ModeofTransport {
+public enum ModeOfTransport {
 
     FLIGHT,
     TRAIN,

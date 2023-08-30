@@ -1,6 +1,6 @@
 package com.example.MakeYourTrip.Services;
 
-import com.example.MakeYourTrip.Enums.ModeofTransport;
+import com.example.MakeYourTrip.Enums.ModeOfTransport;
 import com.example.MakeYourTrip.Exceptions.RouteNotfoundException;
 import com.example.MakeYourTrip.Models.Routes;
 import com.example.MakeYourTrip.Models.Transport;
@@ -56,7 +56,7 @@ public class TransportService {
     public List<FlightResult> searchFlights(SearchFlightDto searchFlightDto){
 
        ///first get the list of routes according fromCity and toCity and ModeOftransport
-        List<Routes> routesList = routesRepository.findByFromCityAndToCityAndModeofTransport(searchFlightDto.getFromCity(),searchFlightDto.getToCity(),ModeofTransport.FLIGHT);
+        List<Routes> routesList = routesRepository.find(searchFlightDto.getFromCity(),searchFlightDto.getToCity(), ModeOfTransport.FLIGHT);
         ///create list of flightResult for returning
         List<FlightResult> flightResults = new ArrayList<>();
 
@@ -72,7 +72,7 @@ public class TransportService {
                     FlightResult result = TransportTransformers.convertToFlightResult(transport);
                     ///traansport object does not contains setListOfStopInBetween so
                     ///we are getting it from route object
-                    result.setListOfStopInBetween(routes.getListofStopsInbetween());
+                    result.setListOfStopInBetween(routes.getListOfStopsInBetween());
                     flightResults.add(result);
                 }
             }

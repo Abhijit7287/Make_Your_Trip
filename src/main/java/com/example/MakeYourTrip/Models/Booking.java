@@ -1,6 +1,5 @@
 package com.example.MakeYourTrip.Models;
 
-import com.sun.javafx.beans.IDProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "bookings")
@@ -26,7 +24,7 @@ public class Booking {
 
     private String seatNos; ///this will ne comma seprated values like 1A,2A,3A
 
-    private LocalDate JourneyDate;
+    private LocalDate journeyDate;
 
     private Integer transportId;
 

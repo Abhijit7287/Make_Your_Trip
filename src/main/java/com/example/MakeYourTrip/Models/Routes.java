@@ -2,7 +2,7 @@ package com.example.MakeYourTrip.Models;
 
 
 import com.example.MakeYourTrip.Enums.City;
-import com.example.MakeYourTrip.Enums.ModeofTransport;
+import com.example.MakeYourTrip.Enums.ModeOfTransport;
 import lombok.*;
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -27,10 +27,10 @@ public class Routes {
     @Enumerated(value = EnumType.STRING)
     private City toCity;
 
-    private String listofStopsInbetween;
+    private String listOfStopsInBetween;
 
     @Enumerated(value = EnumType.STRING)
-    private ModeofTransport modeofTransport;
+    private ModeOfTransport modeOfTransport;
 
     @OneToMany(mappedBy = "routes",cascade = CascadeType.ALL)
     private List<Transport> transportList  = new ArrayList<>();

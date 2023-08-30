@@ -1,6 +1,6 @@
 package com.example.MakeYourTrip.RequestDto;
 
-import com.example.MakeYourTrip.Enums.ModeofTransport;
+import com.example.MakeYourTrip.Enums.ModeOfTransport;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -9,13 +9,13 @@ import java.time.LocalTime;
 @Data
 public class AddTransport {
 
-    private ModeofTransport modeofTransport;
+    private ModeOfTransport modeOfTransport;
 
-    private LocalDate JourneyDate;
+    private LocalDate journeyDate;
 
     private LocalTime startTime;
 
-    private double JourneyTime;
+    private double journeyTime;
 
     private Integer routeId;
 

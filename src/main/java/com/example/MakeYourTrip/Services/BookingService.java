@@ -118,7 +118,7 @@ public class BookingService {
 
        TicketEntity ticketEntity = TicketEntity.builder()
                                   .allSeatNos(bookingRequest.getSeatNo())
-                                  .JourneyDate(transport.getJourneyDate())
+                                  .journeyDate(transport.getJourneyDate())
                                   .startTime(transport.getStartTime())
                                   .routeDetails(routeDetails)
                                   .totalCostPaid(totalPricePaid)

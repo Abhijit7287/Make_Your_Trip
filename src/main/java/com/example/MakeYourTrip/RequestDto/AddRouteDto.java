@@ -1,7 +1,7 @@
 package com.example.MakeYourTrip.RequestDto;
 
 import com.example.MakeYourTrip.Enums.City;
-import com.example.MakeYourTrip.Enums.ModeofTransport;
+import com.example.MakeYourTrip.Enums.ModeOfTransport;
 import lombok.Data;
 
 @Data
@@ -13,5 +13,5 @@ public class AddRouteDto {
 
     private String stopsInBetween;
 
-    private ModeofTransport modeofTransport;
+    private ModeOfTransport modeOfTransport;
 }

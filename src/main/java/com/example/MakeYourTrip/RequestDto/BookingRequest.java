@@ -10,7 +10,7 @@ public class BookingRequest {
 
     private String seatNo;
 
-    private LocalDate journyDate;
+    private LocalDate journeyDate;
 
     private Integer transportId;
 

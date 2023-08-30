@@ -11,8 +11,8 @@ public class RouteTransformer {
 
         Routes object = Routes.builder().fromCity(addRouteDto.getFromCity())
                         .toCity(addRouteDto.getToCity())
-                        .listofStopsInbetween(addRouteDto.getStopsInBetween())
-                        .modeofTransport(addRouteDto.getModeofTransport()).build();
+                        .listOfStopsInBetween(addRouteDto.getStopsInBetween())
+                        .modeOfTransport(addRouteDto.getModeOfTransport()).build();
 
          return object;
     }

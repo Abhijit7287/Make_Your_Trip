@@ -14,8 +14,6 @@ public class RouteService {
     @Autowired
     private RoutesRepository routesRepository;
 
-
-
     public String addRoutes(AddRouteDto addRouteDto){
 
         Routes object = RouteTransformer.convertDtotoEntity(addRouteDto);
@@ -25,3 +23,4 @@ public class RouteService {
         return "Routes has added Successfully";
     }
 }
+

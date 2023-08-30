@@ -17,7 +17,7 @@ public class SeatController {
     @Autowired
     private SeatService seatService;
 
-   @PostMapping("/addSeats")
+    @PostMapping("/addSeats")
     public ResponseEntity addSeats(@RequestBody AddFlightSeatDto addFlightSeatDto){
 
      return seatService.addFlightSeats(addFlightSeatDto);

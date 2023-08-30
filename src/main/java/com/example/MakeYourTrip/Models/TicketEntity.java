@@ -24,7 +24,7 @@ public class TicketEntity {
 
     private String routeDetails;
 
-    private LocalDate JourneyDate;
+    private LocalDate journeyDate;
 
     private LocalTime startTime;
 

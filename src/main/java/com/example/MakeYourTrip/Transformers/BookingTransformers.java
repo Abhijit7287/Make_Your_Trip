@@ -10,7 +10,7 @@ public class BookingTransformers {
     public static Booking convertToBooking(BookingRequest bookingRequest){
 
         Booking bookingObj = Booking.builder().transportId(bookingRequest.getTransportId())
-                                           .JourneyDate(bookingRequest.getJournyDate())
+                                           .journeyDate(bookingRequest.getJourneyDate())
                                            .seatNos(bookingRequest.getSeatNo())
                                            .build();
         return bookingObj;
