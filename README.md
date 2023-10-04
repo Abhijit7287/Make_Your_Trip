@@ -15,7 +15,7 @@ Key Features
 
 
 Technologies Used
->>> Java
->>> Spring Boot
->>> Spring Data JPA
+>>> Java,
+>>> Spring Boot,
+>>> Spring Data JPA,
 >>> Lombok
